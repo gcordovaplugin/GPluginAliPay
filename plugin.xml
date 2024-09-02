@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cn.yingzhichu.cordova.galipay" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>GAliPay</name>
+    <js-module name="GAliPay" src="www/GAliPay.js">
+        <clobbers target="cordova.plugins.GAliPay" />
+    </js-module>
+</plugin>
