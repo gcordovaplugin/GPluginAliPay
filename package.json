@@ -1,0 +1,27 @@
+{
+  "name": "cn.yingzhichu.cordova.galipay",
+  "version": "0.0.1",
+  "description": "",
+  "cordova": {
+    "id": "cn.yingzhichu.cordova.galipay",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcordovaplugin/GPluginAliPay.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gcordovaplugin/GPluginAliPay/issues"
+  },
+  "homepage": "https://github.com/gcordovaplugin/GPluginAliPay#readme"
+}
