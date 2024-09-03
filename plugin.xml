@@ -1,2 +1,45 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cn.yingzhichu.cordova.galipay" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>GAliPay</name><js-module name="GAliPay" src="www/GAliPay.js"><clobbers target="cordova.plugins.GAliPay" /></js-module><platform name="android"><config-file parent="/*" target="res/xml/config.xml"><feature name="GAliPay"><param name="android-package" value="cn.yingzhichu.cordova.galipay.GAliPay" /></feature></config-file><config-file parent="/*" target="AndroidManifest.xml" /><source-file src="src/android/GAliPay.java" target-dir="src/cn/yingzhichu/cordova/galipay/GAliPay" /></platform><platform name="ios"><config-file parent="/*" target="config.xml"><feature name="GAliPay"><param name="ios-package" value="GAliPay" /></feature></config-file><source-file src="src/ios/GAliPay.m" /></platform></plugin>
+<plugin id="cn.yingzhichu.cordova.galipay" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>GAliPay</name>
+    <js-module name="GAliPay" src="www/GAliPay.js">
+        <clobbers target="cordova.plugins.GAliPay" />
+    </js-module>
+    <platform name="android">
+        <framework src="com.alipay.sdk:alipaysdk-android:+@aar" />
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="GAliPay">
+                <param name="android-package" value="cn.yingzhichu.cordova.galipay.GAliPay" />
+            </feature>
+        </config-file>
+        <config-file parent="/manifest/" target="AndroidManifest.xml" >
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <!-- 如果您的 App 的 targetSdkVersion 大于或等于 30，则需要在 AndroidManifest.xml 中提供下面的应用可见性声明，
+         让支付宝 SDK 感知设备上是否已经安装了支付宝 App。同时，您可能还需要升级 Gradle Plugin 到最新版本。
+         关于 Android 11 的 "应用可见性" 机制，参见 https://developer.android.com/about/versions/11/privacy/package-visibility?hl=zh-cn -->
+            <queries>
+                <package android:name="com.eg.android.AlipayGphone" />
+                <!-- 支付宝 -->
+                <package android:name="hk.alipay.wallet" />
+                <!-- AlipayHK -->
+            </queries>
+            <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+        </config-file>
+        <source-file src="src/android/GAliPay.java" target-dir="src/cn/yingzhichu/cordova/galipay/GAliPay" />
+        <source-file src="src/android/PayResult.java" target-dir="src/cn/yingzhichu/cordova/galipay/PayResult" />
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="GAliPay">
+                <param name="ios-package" value="GAliPay" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/GAliPay.m" />
+    </platform>
+</plugin>
